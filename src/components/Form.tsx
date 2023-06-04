@@ -33,13 +33,13 @@ function Form() {
         value={input}
       />
       <div className="flex justify-end py-2">
-        {previousGuesses.length && <button
+        {previousGuesses.length ? <button
           className="border border-gun-powder-500 mr-2 px-6 py-1 rounded text-gun-powder-500"
           onClick={handleRestart}
           type="button"
         >
           Restart
-        </button>}
+        </button> : <></>}
         <button
           className="bg-logan-500 ml-2 px-6 py-1 rounded text-gun-powder-500"
           disabled={disabled}
