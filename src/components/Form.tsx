@@ -3,7 +3,7 @@ import { MainContext, MainContextProps } from "./Main";
 
 function Form() {
   const [disabled, setDisabled] = useState<boolean>(false);
-  const { input, setGuessHint, setInput, setPreviousGuesses } = useContext(
+  const { input, previousGuesses, setGuessHint, setInput, setPreviousGuesses } = useContext(
     MainContext
   ) as MainContextProps;
   const [numberOfGuess, setNumberOfGuess] = useState<number>(1);
@@ -33,13 +33,13 @@ function Form() {
         value={input}
       />
       <div className="flex justify-end py-2">
-        <button
+        {previousGuesses.length && <button
           className="border border-gun-powder-500 mr-2 px-6 py-1 rounded text-gun-powder-500"
           onClick={handleRestart}
           type="button"
         >
           Restart
-        </button>
+        </button>}
         <button
           className="bg-logan-500 ml-2 px-6 py-1 rounded text-gun-powder-500"
           disabled={disabled}
